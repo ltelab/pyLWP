@@ -18,10 +18,10 @@ import glob
 def download_ERA(lat,lon,year,month_str_list, day_str_list, time_str_list, save_to_nc_file):
     # lat and lon must be in degrees (decimal)
     # month_str_list (resp. day_str_list, time_str_list) contain the list of months which we want to download (in strings)
-    N = lat+1
-    W = lon-1
-    S = lat-1
-    E = lon+1
+    N = lat+.5
+    W = lon-.5
+    S = lat-.5
+    E = lon+.5
     c = cdsapi.Client()
     c.retrieve('reanalysis-era5-single-levels',{
         'product_type':'reanalysis',
@@ -39,12 +39,12 @@ def download_ERA(lat,lon,year,month_str_list, day_str_list, time_str_list, save_
 
 if __name__=='__main__':
     year = 2021
-    month_str_list = ['01']
+    month_str_list = ['12'] #,'11','12']
     day_str_list = ['01','02','03', '04','05','06','07','08','09','10','11','12','13','14','15',
                    '16','17','18','19','20','21', '22','23','24','25','26','27','28','29','30','31']
     time_str_list = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00',
                     '12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00']
-    lat = 47.085293
-    lon = 6.797411
-    save_to_nc_file = 'ICEGENESIS_Jan_ERA5_for_LWP'
+    lat = 38.0
+    lon = 22.2
+    save_to_nc_file = '/home/billault/Documents/In_progress/HELMOS_2021/ERA5_LWP_2021_12.nc'
     download_ERA(lat,lon,year,month_str_list, day_str_list, time_str_list, save_to_nc_file)
