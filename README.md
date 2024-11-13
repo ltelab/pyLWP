@@ -12,6 +12,7 @@ The requirements for running the retrieval are listed in requirements.txt (Note:
 The user is most likely interested by the code contained in the juypter notebook **`implementation_lwp_retrieval.ipynb`** which illustrates how to implement the retrieval using real data.
 
 The repo additionally contains the following directories and files:
+- The "dataset_creation" directory contains scripts to generate the training dataset (fetch radiosonde profile, run forward model...). This uses the radiative transfer model PAMTRA (https://pamtra.readthedocs.io/)
 - The "parameters" directory contains the neural network parameters + values to use for normalization (tree of subdirectories which are browsed through depending on the chosen input features).
 - The "training_scripts" directory contains a few scripts that were used during training of the model.
 - "download_ERA5_data.py" is a script for the download of reanalysis data, which should be adapted by the 
